@@ -1,0 +1,17 @@
+package SmartHome.services;
+
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import SmartHome.services.requestBody.CommandExecutionRequestBody;
+
+@RestController
+public class CommandExecution {
+
+	@RequestMapping(path = "/commandExecution", method = RequestMethod.POST)
+	public void commandExecution(@RequestBody CommandExecutionRequestBody postBody) {
+		
+	}
+}
