@@ -1,19 +1,16 @@
-package SmartHome.controllable;
+package SmartHome.controllable.controllableObjects;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import SmartHome.controllable.command.Command;
+import SmartHome.controllable.Command;
+import SmartHome.controllable.Controllable;
 import SmartHome.controllable.command.CommandFactory;
 
 public class RadioSocket implements Controllable {
 	private static final String type = "RadioSocket";
 
-	@Autowired
-	private CommandFactory commandFactory;
 	
 	private String name;
 	private String systemCode;
@@ -21,13 +18,13 @@ public class RadioSocket implements Controllable {
 	private boolean isExpectedToBeOn;
 	private List<Command> commandsToExecute;
 
-	RadioSocket(String name, String systemCode, String deviceCode) {
+	RadioSocket(String name, String systemCode, String deviceCode, CommandFactory commandFactory) {
 		this.name = name;
 		this.systemCode = systemCode;
 		this.deviceCode = deviceCode;
 		
 		this.commandsToExecute = new ArrayList<Command>();
-		commandsToExecute.add(this.commandFactory.createToggleRadioSocketCommand(this));
+		commandsToExecute.add(commandFactory.createToggleRadioSocketCommand(this));
 	}
 
 	public String getName() {

@@ -1,4 +1,4 @@
-package SmartHome.controllable.command;
+package SmartHome.controllable;
 
 public interface Command {
 	public void execute();

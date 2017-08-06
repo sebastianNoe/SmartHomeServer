@@ -2,7 +2,8 @@ package SmartHome.controllable.command;
 
 import org.springframework.stereotype.Controller;
 
-import SmartHome.controllable.RadioSocket;
+import SmartHome.controllable.Command;
+import SmartHome.controllable.controllableObjects.RadioSocket;
 
 @Controller
 public class CommandFactory {

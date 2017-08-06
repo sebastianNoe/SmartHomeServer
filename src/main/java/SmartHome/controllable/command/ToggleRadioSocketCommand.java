@@ -1,6 +1,7 @@
 package SmartHome.controllable.command;
 
-import SmartHome.controllable.RadioSocket;
+import SmartHome.controllable.Command;
+import SmartHome.controllable.controllableObjects.RadioSocket;
 
 public class ToggleRadioSocketCommand implements Command{
 	private RadioSocket myRadioSocket;
@@ -14,7 +15,7 @@ public class ToggleRadioSocketCommand implements Command{
 	}
 
 	public String getName() {
-		return "Toggle Radio Socket";
+		return "Toggle";
 	}
 
 }
