@@ -1,0 +1,22 @@
+<smartHomeServer>
+  <settings>
+	<rcSwitch-piLocation>/home/pi/rcswitch-pi</rcSwitch-piLocation>
+  </settings>
+  <devices>
+    <radioSocket>
+      <name>test1</name>
+      <systemCode>11111</systemCode>
+      <deviceCode>4</deviceCode>
+    </radioSocket>
+    <radioSocket>
+      <name>test2</name>
+      <systemCode>11111</systemCode>
+      <deviceCode>3</deviceCode>
+    </radioSocket>
+    <radioSocket>
+      <name>test3</name>
+      <systemCode>11111</systemCode>
+      <deviceCode>2</deviceCode>
+    </radioSocket>
+  </devices>
+</smartHomeServer>

@@ -1,5 +1,6 @@
 package SmartHome.controllable.controllableObjects;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,14 +45,16 @@ public class RadioSocket implements Controllable {
 	
 	
 	public void toggle() {
+		String sendingCommand;
 		try {
 			if (isExpectedToBeOn) {
-				Runtime.getRuntime().exec("./send " + this.systemCode + " " + this.deviceCode + " 0");
+				sendingCommand = "0";
 				this.isExpectedToBeOn = false;
 			} else {
-				Runtime.getRuntime().exec("./send " + this.systemCode + " " + this.deviceCode + " 1");
+				sendingCommand = "1";
 				this.isExpectedToBeOn = true;
 			}
+			Runtime.getRuntime().exec("sudo ./send " + this.systemCode + " " + this.deviceCode + " " + sendingCommand, null, new File("/home/pi/rcswitch-pi"));
 		} catch (IOException ioexception) {
 			ioexception.printStackTrace();
 		}

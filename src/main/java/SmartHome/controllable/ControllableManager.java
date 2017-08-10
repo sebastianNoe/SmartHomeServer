@@ -26,7 +26,7 @@ public class ControllableManager {
 	public void init() {
 		this.controllables = new ArrayList<Controllable>();
 		
-		this.controllables.add(controllableFactory.createRadioSocket("test socket", "11111", "00010"));	
+		this.controllables.add(controllableFactory.createRadioSocket("test socket", "11111", "4"));	
 	}
 
 	public void executeCommand(String controllableName, String commandName) {
