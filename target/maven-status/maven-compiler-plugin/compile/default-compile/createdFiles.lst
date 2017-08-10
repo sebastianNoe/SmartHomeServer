@@ -8,4 +8,3 @@ SmartHome\controllable\controllableObjects\RadioSocket.class
 SmartHome\services\CommandExecution.class
 SmartHome\controllable\command\ToggleRadioSocketCommand.class
 SmartHome\controllable\controllableObjects\ControllableFactory.class
-SmartHome\MvcConfig.class

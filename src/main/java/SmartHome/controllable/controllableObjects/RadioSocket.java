@@ -16,13 +16,15 @@ public class RadioSocket implements Controllable {
 	private String name;
 	private String systemCode;
 	private String deviceCode;
+	private File rcswitchPiLocation;
 	private boolean isExpectedToBeOn;
 	private List<Command> commandsToExecute;
 
-	RadioSocket(String name, String systemCode, String deviceCode, CommandFactory commandFactory) {
+	RadioSocket(String name, String systemCode, String deviceCode, CommandFactory commandFactory, File rcswitchPiLocation) {
 		this.name = name;
 		this.systemCode = systemCode;
 		this.deviceCode = deviceCode;
+		this.rcswitchPiLocation = rcswitchPiLocation;
 		
 		this.commandsToExecute = new ArrayList<Command>();
 		commandsToExecute.add(commandFactory.createToggleRadioSocketCommand(this));
@@ -54,7 +56,7 @@ public class RadioSocket implements Controllable {
 				sendingCommand = "1";
 				this.isExpectedToBeOn = true;
 			}
-			Runtime.getRuntime().exec("sudo ./send " + this.systemCode + " " + this.deviceCode + " " + sendingCommand, null, new File("/home/pi/rcswitch-pi"));
+			Runtime.getRuntime().exec("sudo ./send " + this.systemCode + " " + this.deviceCode + " " + sendingCommand, null, this.rcswitchPiLocation);
 		} catch (IOException ioexception) {
 			ioexception.printStackTrace();
 		}

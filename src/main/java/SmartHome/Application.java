@@ -10,7 +10,7 @@ import SmartHome.exceptions.SettingsNotSetException;
 
 @SpringBootApplication
 @ComponentScan({ "SmartHome.controllable", "SmartHome.controllable.command",
-		"SmartHome.controllable.controllableObjects", "SmartHome.services", "SmartHome.settings"})
+		"SmartHome.controllable.controllableObjects", "SmartHome.services", "SmartHome"})
 public class Application {
 	private static File settingsLocation;
 
