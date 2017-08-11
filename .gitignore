@@ -9,3 +9,6 @@ settings.xml
 *.zip
 *.tar.gz
 *.rar
+
+.project
+.classpath
