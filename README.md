@@ -10,9 +10,10 @@ To define the location of that library and also to define the to be managed devi
   - TurnOff -> Turns Radio Socket Off
 
 ## Settings XML Format
-All device types can be used here.
-Device name needs to be unique.
-Each device type can have its unique attributes
+- All device types can be used here.
+- Device name needs to be unique.
+- Each device type can have its unique attributes.
+- Path to settings file can be defined on Startup using following arguments: *-s <settings path>*. If no settings parameter is provided you will be asked to provide one during startup
 
 ```XML
 <smartHomeServer>
