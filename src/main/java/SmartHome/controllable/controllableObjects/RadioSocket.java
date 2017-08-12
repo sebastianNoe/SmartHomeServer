@@ -7,12 +7,12 @@ import java.util.List;
 
 import SmartHome.controllable.Command;
 import SmartHome.controllable.Controllable;
+import SmartHome.controllable.OnOrOffSwitchable;
 import SmartHome.controllable.command.CommandFactory;
 
-public class RadioSocket implements Controllable {
+public class RadioSocket implements Controllable, OnOrOffSwitchable {
 	private static final String type = "RadioSocket";
 
-	
 	private String name;
 	private String systemCode;
 	private String deviceCode;
@@ -20,14 +20,16 @@ public class RadioSocket implements Controllable {
 	private boolean isExpectedToBeOn;
 	private List<Command> commandsToExecute;
 
-	RadioSocket(String name, String systemCode, String deviceCode, CommandFactory commandFactory, File rcswitchPiLocation) {
+	RadioSocket(String name, String systemCode, String deviceCode, CommandFactory commandFactory,
+			File rcswitchPiLocation) {
 		this.name = name;
 		this.systemCode = systemCode;
 		this.deviceCode = deviceCode;
 		this.rcswitchPiLocation = rcswitchPiLocation;
-		
+
 		this.commandsToExecute = new ArrayList<Command>();
 		commandsToExecute.add(commandFactory.createToggleRadioSocketCommand(this));
+		commandsToExecute.addAll(commandFactory.createTurnOnAndOffCommand(this));
 	}
 
 	public String getName() {
@@ -38,27 +40,40 @@ public class RadioSocket implements Controllable {
 		return type;
 	}
 
-
 	public List<Command> getCommands() {
 		return this.commandsToExecute;
 	}
-	
-	
-	
-	
+
 	public void toggle() {
-		String sendingCommand;
+		if (isExpectedToBeOn) {
+			this.turnOff();
+		} else {
+			this.turnOn();
+		}
+	}
+
+	private void sendOnOffCommand(String onOrOffIndicator) throws IOException {
+		Runtime.getRuntime().exec("sudo ./send " + this.systemCode + " " + this.deviceCode + " " + onOrOffIndicator,
+				null, this.rcswitchPiLocation);
+	}
+
+	public void turnOn() {
 		try {
-			if (isExpectedToBeOn) {
-				sendingCommand = "0";
-				this.isExpectedToBeOn = false;
-			} else {
-				sendingCommand = "1";
-				this.isExpectedToBeOn = true;
-			}
-			Runtime.getRuntime().exec("sudo ./send " + this.systemCode + " " + this.deviceCode + " " + sendingCommand, null, this.rcswitchPiLocation);
-		} catch (IOException ioexception) {
-			ioexception.printStackTrace();
+			String sendingCommand = "1";
+			this.isExpectedToBeOn = true;
+			this.sendOnOffCommand(sendingCommand);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void turnOff() {
+		try {
+			String sendingCommand = "0";
+			this.isExpectedToBeOn = false;
+			this.sendOnOffCommand(sendingCommand);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
