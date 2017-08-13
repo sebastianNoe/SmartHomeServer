@@ -14,6 +14,8 @@ import org.w3c.dom.NodeList;
 
 import SmartHome.Settings;
 import SmartHome.controllable.controllableObjects.ControllableFactory;
+import SmartHome.exceptions.CommandExecutionError;
+import SmartHome.exceptions.DeviceCommandCombinationNotFound;
 
 @Controller
 public class ControllableManager {
@@ -42,7 +44,7 @@ public class ControllableManager {
 		}
 	}
 
-	public void executeCommand(String controllableName, String commandName) {
+	public void executeCommand(String controllableName, String commandName) throws DeviceCommandCombinationNotFound, CommandExecutionError {
 		Iterator<Controllable> controllableIterator = this.controllables.iterator();
 		while (controllableIterator.hasNext()) {
 			Controllable currentControllable = controllableIterator.next();
@@ -52,9 +54,12 @@ public class ControllableManager {
 					Command currentCommand = commandIterator.next();
 					if (currentCommand.getName().equals(commandName)) {
 						currentCommand.execute();
+						return;
 					}
 				}
 			}
 		}
+		
+		throw new DeviceCommandCombinationNotFound();
 	}
 }

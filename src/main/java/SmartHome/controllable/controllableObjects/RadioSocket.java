@@ -9,6 +9,7 @@ import SmartHome.controllable.Command;
 import SmartHome.controllable.Controllable;
 import SmartHome.controllable.OnOrOffSwitchable;
 import SmartHome.controllable.command.CommandFactory;
+import SmartHome.exceptions.CommandExecutionError;
 
 public class RadioSocket implements Controllable, OnOrOffSwitchable {
 	private static final String type = "RadioSocket";
@@ -44,7 +45,7 @@ public class RadioSocket implements Controllable, OnOrOffSwitchable {
 		return this.commandsToExecute;
 	}
 
-	public void toggle() {
+	public void toggle() throws CommandExecutionError {
 		if (isExpectedToBeOn) {
 			this.turnOff();
 		} else {
@@ -57,23 +58,25 @@ public class RadioSocket implements Controllable, OnOrOffSwitchable {
 				null, this.rcswitchPiLocation);
 	}
 
-	public void turnOn() {
+	public void turnOn() throws CommandExecutionError {
 		try {
 			String sendingCommand = "1";
 			this.isExpectedToBeOn = true;
 			this.sendOnOffCommand(sendingCommand);
 		} catch (IOException e) {
 			e.printStackTrace();
+			throw new CommandExecutionError();
 		}
 	}
 
-	public void turnOff() {
+	public void turnOff() throws CommandExecutionError {
 		try {
 			String sendingCommand = "0";
 			this.isExpectedToBeOn = false;
 			this.sendOnOffCommand(sendingCommand);
 		} catch (IOException e) {
 			e.printStackTrace();
+			throw new CommandExecutionError();
 		}
 	}
 

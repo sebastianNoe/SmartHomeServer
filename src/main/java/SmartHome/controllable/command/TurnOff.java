@@ -2,6 +2,7 @@ package SmartHome.controllable.command;
 
 import SmartHome.controllable.Command;
 import SmartHome.controllable.OnOrOffSwitchable;
+import SmartHome.exceptions.CommandExecutionError;
 
 public class TurnOff implements Command {
 	private OnOrOffSwitchable switchable;
@@ -10,7 +11,7 @@ public class TurnOff implements Command {
 		this.switchable = switchable;
 	}
 
-	public void execute() {
+	public void execute() throws CommandExecutionError {
 		this.switchable.turnOff();
 	}
 
