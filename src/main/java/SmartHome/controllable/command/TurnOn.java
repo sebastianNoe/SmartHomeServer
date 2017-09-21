@@ -15,8 +15,10 @@ public class TurnOn implements Command {
 		this.switchable.turnOn();
 	}
 
+	public static final String name = "TurnOn";
 	public String getName() {
-		return "TurnOn";
+		return TurnOn.name;
 	}
+
 
 }

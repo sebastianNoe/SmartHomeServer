@@ -15,7 +15,8 @@ public class TurnOff implements Command {
 		this.switchable.turnOff();
 	}
 
+	public static final String name = "TurnOff";
 	public String getName() {
-		return "TurnOff";
+		return TurnOff.name;
 	}
 }
