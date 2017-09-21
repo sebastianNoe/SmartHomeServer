@@ -20,13 +20,15 @@ public class RadioSocket implements Controllable, OnOrOffSwitchable {
 	private File rcswitchPiLocation;
 	private boolean isExpectedToBeOn;
 	private List<Command> commandsToExecute;
+	private RuntimeExecuter runtimeExecuter;
 
 	RadioSocket(String name, String systemCode, String deviceCode, CommandFactory commandFactory,
-			File rcswitchPiLocation) {
+			File rcswitchPiLocation, RuntimeExecuter runtimeExecuter) {
 		this.name = name;
 		this.systemCode = systemCode;
 		this.deviceCode = deviceCode;
 		this.rcswitchPiLocation = rcswitchPiLocation;
+		this.runtimeExecuter = runtimeExecuter;
 
 		this.commandsToExecute = new ArrayList<Command>();
 		commandsToExecute.add(commandFactory.createToggleRadioSocketCommand(this));
@@ -53,9 +55,8 @@ public class RadioSocket implements Controllable, OnOrOffSwitchable {
 		}
 	}
 
-	private void sendOnOffCommand(String onOrOffIndicator) throws IOException {
-		Runtime.getRuntime().exec("sudo ./send " + this.systemCode + " " + this.deviceCode + " " + onOrOffIndicator,
-				null, this.rcswitchPiLocation);
+	protected void sendOnOffCommand(String onOrOffIndicator) throws IOException {
+		runtimeExecuter.execute("sudo ./send " + this.systemCode + " " + this.deviceCode + " " + onOrOffIndicator, this.rcswitchPiLocation);
 	}
 
 	public void turnOn() throws CommandExecutionError {

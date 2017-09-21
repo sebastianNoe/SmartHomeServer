@@ -5,6 +5,8 @@ import SmartHome.controllable.controllableObjects.RadioSocket;
 import SmartHome.exceptions.CommandExecutionError;
 
 public class ToggleRadioSocketCommand implements Command{
+	
+	
 	private RadioSocket myRadioSocket;
 	
 	public ToggleRadioSocketCommand(RadioSocket myRadioSocket) {
@@ -15,8 +17,9 @@ public class ToggleRadioSocketCommand implements Command{
 		this.myRadioSocket.toggle();
 	}
 
+	public static final String name = "Toggle";
 	public String getName() {
-		return "Toggle";
+		return ToggleRadioSocketCommand.name;
 	}
 
 }

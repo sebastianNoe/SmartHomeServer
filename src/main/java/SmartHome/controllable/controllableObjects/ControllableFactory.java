@@ -26,7 +26,8 @@ public class ControllableFactory {
 							   controllableElement.getElementsByTagName("systemCode").item(0).getTextContent(), 
 							   controllableElement.getElementsByTagName("deviceCode").item(0).getTextContent(), 
 							   this.commandFactory,
-							   new File(this.applicationSettings.getRcSwitchPiLocation()));
+							   new File(this.applicationSettings.getRcSwitchPiLocation()),
+							   new RuntimeExecuter());
 	}
 	
 	public Controllable createControllable(Element controllableElement) {
