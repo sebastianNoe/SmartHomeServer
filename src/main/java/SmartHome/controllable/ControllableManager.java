@@ -22,11 +22,17 @@ public class ControllableManager {
 	private Settings applicationSettings;
 	private ControllableFactory controllableFactory;
 	private List<Controllable> controllables;
+	private CastNodeToElement castNodeToElement;
 	
 	@Autowired
 	public ControllableManager(ControllableFactory controllableFactory, Settings applicationSettings) {
+		this(controllableFactory, applicationSettings, new CastNodeToElement());
+	}
+	
+	ControllableManager(ControllableFactory controllableFactory, Settings applicationSettings, CastNodeToElement castNodeToElement) {
 		this.controllableFactory = controllableFactory;
 		this.applicationSettings = applicationSettings;
+		this.castNodeToElement = castNodeToElement;
 	}
 
 
@@ -38,7 +44,7 @@ public class ControllableManager {
 		for(int controllableNumber = 0; controllableNumber < controllablesList.getLength(); controllableNumber++) {
 			Node controllableNode = controllablesList.item(controllableNumber);
 			if(controllableNode.getNodeType() == Node.ELEMENT_NODE) {
-				Element controllableElement = (Element) controllableNode;
+				Element controllableElement = this.castNodeToElement.castNodeToElement(controllableNode);
 				this.controllables.add(controllableFactory.createControllable(controllableElement));
 			}
 		}
@@ -61,5 +67,11 @@ public class ControllableManager {
 		}
 		
 		throw new DeviceCommandCombinationNotFound();
+	}
+}
+
+class CastNodeToElement {
+	Element castNodeToElement(Node node) {
+		return (Element) node;
 	}
 }
