@@ -20,7 +20,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-	public static void deriveSettingsLocation(String[] args) throws CorruptSettingsFile {
+	private static void deriveSettingsLocation(String[] args) throws CorruptSettingsFile {
 		try {
 			settingsLocation = checkArgumentsForSettings(args);
 		} catch (SettingsNotSetException e) {
@@ -32,7 +32,7 @@ public class Application {
 		}
 	}
 
-	public static File checkArgumentsForSettings(String[] args) throws SettingsNotSetException {
+	private static File checkArgumentsForSettings(String[] args) throws SettingsNotSetException {
 		boolean isNextSettingsPath = false;
 		for (int i = 0; i < args.length; i++) {
 			if (isNextSettingsPath) {
