@@ -74,7 +74,7 @@ public class ControllableManagerTest {
 			// wanted behavior
 		}
 	}
-	
+
 	@Test
 	public void illegalDeviceRaisesException() throws DeviceCommandCombinationNotFound, CommandExecutionError {
 		this.initialize();
@@ -96,25 +96,32 @@ public class ControllableManagerTest {
 	}
 
 	private void initialize() {
+		// Prepare Settings Double
 		NodeList testDevices = mock(NodeList.class);
 		Node testNode1 = mock(Node.class);
 		when(testNode1.getNodeType()).thenReturn(Node.ELEMENT_NODE);
-		when(testDevices.item(0)).thenReturn(testNode1);
 		Node testNode2 = mock(Node.class);
 		when(testNode2.getNodeType()).thenReturn(Node.ELEMENT_NODE);
+		when(testDevices.item(0)).thenReturn(testNode1);
 		when(testDevices.item(1)).thenReturn(testNode2);
 		when(testDevices.getLength()).thenReturn(2);
 		when(this.settingsDouble.getDeviceNodeList()).thenReturn(testDevices);
+
+		// Prepare handling of Device 1 Creation
 		Element element1 = mock(Element.class);
-		Element element2 = mock(Element.class);
 		when(this.castNodeToElementDouble.castNodeToElement(testNode1)).thenReturn(element1);
-		when(this.castNodeToElementDouble.castNodeToElement(testNode2)).thenReturn(element2);
 		Controllable controllable1 = mock(Controllable.class);
 		when(controllable1.getName()).thenReturn(legalTestDevice1);
 		when(this.controllableFactoryDouble.createControllable(element1)).thenReturn(controllable1);
+
+		// Prepare handling of Device 2 Creation
+		Element element2 = mock(Element.class);
+		when(this.castNodeToElementDouble.castNodeToElement(testNode2)).thenReturn(element2);
 		Controllable controllable2 = mock(Controllable.class);
 		when(controllable2.getName()).thenReturn(legalTestDevice2);
 		when(this.controllableFactoryDouble.createControllable(element2)).thenReturn(controllable2);
+
+		// Prepare Command Calls for Device 1
 		ArrayList<Command> commandsForDevice1 = new ArrayList<Command>();
 		command1ForDevice1 = mock(Command.class);
 		when(command1ForDevice1.getName()).thenReturn(legalTestCommand1ForDevice1);
@@ -123,12 +130,15 @@ public class ControllableManagerTest {
 		commandsForDevice1.add(command1ForDevice1);
 		commandsForDevice1.add(command2ForDevice1);
 		when(controllable1.getCommands()).thenReturn(commandsForDevice1);
+
+		// Prepare Command Calls for Device 2
 		ArrayList<Command> commandsForDevice2 = new ArrayList<Command>();
 		command1ForDevice2 = mock(Command.class);
 		when(command1ForDevice2.getName()).thenReturn(legalTestCommand1ForDevice2);
 		commandsForDevice2.add(command1ForDevice2);
 		when(controllable2.getCommands()).thenReturn(commandsForDevice2);
 
+		// Initialize Test Object & Validate Results
 		this.testObject.init();
 		verify(this.controllableFactoryDouble, times(1)).createControllable(element1);
 		verify(this.controllableFactoryDouble, times(1)).createControllable(element2);
