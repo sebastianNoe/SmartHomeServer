@@ -12,7 +12,7 @@ import SmartHome.controllable.command.CommandFactory;
 import SmartHome.exceptions.CommandExecutionError;
 
 public class RadioSocket implements Controllable, OnOrOffSwitchable {
-	private static final String type = "RadioSocket";
+	public static final String type = "RadioSocket";
 
 	private String name;
 	private String systemCode;
@@ -43,6 +43,10 @@ public class RadioSocket implements Controllable, OnOrOffSwitchable {
 		return type;
 	}
 
+	public boolean isExpectedToBeOn() {
+		return this.isExpectedToBeOn;
+	}
+	
 	public List<Command> getCommands() {
 		return this.commandsToExecute;
 	}
