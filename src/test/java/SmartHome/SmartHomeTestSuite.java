@@ -4,6 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 import SmartHome.controllable.ControllableManagerTest;
+import SmartHome.controllable.controllableObjects.ControllableFactoryTest;
 import SmartHome.controllable.controllableObjects.RadioSocketTest;
 import SmartHome.services.CommandExecutionTest;
 
@@ -11,7 +12,8 @@ import SmartHome.services.CommandExecutionTest;
 @Suite.SuiteClasses({
 	RadioSocketTest.class,
 	CommandExecutionTest.class,
-	ControllableManagerTest.class
+	ControllableManagerTest.class,
+	ControllableFactoryTest.class
 })
 public class SmartHomeTestSuite {
 

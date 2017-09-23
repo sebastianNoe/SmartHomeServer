@@ -12,6 +12,13 @@ import SmartHome.controllable.command.CommandFactory;
 
 @Controller
 public class ControllableFactory {
+	protected final static String elementDeviceType = "deviceType";
+	protected final static String elementName = "name";
+	protected final static String elementRadioSocketSystemCode = "systemCode";
+	protected final static String elementRadioSocketDeviceCode = "deviceCode";
+	
+	protected final static String deviceTypeRadioSocket = "RadioSocket";
+	
 	private CommandFactory commandFactory;
 	private Settings applicationSettings;
 	
@@ -22,9 +29,9 @@ public class ControllableFactory {
 	}
 	
 	public Controllable createRadioSocket(Element controllableElement) {
-		return new RadioSocket(controllableElement.getElementsByTagName("name").item(0).getTextContent(), 
-							   controllableElement.getElementsByTagName("systemCode").item(0).getTextContent(), 
-							   controllableElement.getElementsByTagName("deviceCode").item(0).getTextContent(), 
+		return new RadioSocket(controllableElement.getElementsByTagName(elementName).item(0).getTextContent(), 
+							   controllableElement.getElementsByTagName(elementRadioSocketSystemCode).item(0).getTextContent(), 
+							   controllableElement.getElementsByTagName(elementRadioSocketDeviceCode).item(0).getTextContent(), 
 							   this.commandFactory,
 							   new File(this.applicationSettings.getRcSwitchPiLocation()),
 							   new RuntimeExecuter());
@@ -33,8 +40,8 @@ public class ControllableFactory {
 	public Controllable createControllable(Element controllableElement) {
 		Controllable createdControllable = null;
 		
-		String controllableType = controllableElement.getElementsByTagName("deviceType").item(0).getTextContent();
-		if(controllableType.equals("RadioSocket")) {
+		String controllableType = controllableElement.getElementsByTagName(elementDeviceType).item(0).getTextContent();
+		if(controllableType.equals(deviceTypeRadioSocket)) {
 			return this.createRadioSocket(controllableElement);
 		}
 		
