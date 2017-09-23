@@ -1,6 +1,6 @@
-package SmartHome.controllable;
+package smartHome.controllable;
 
-import SmartHome.exceptions.CommandExecutionError;
+import smartHome.exceptions.CommandExecutionError;
 
 public interface OnOrOffSwitchable {
 	public void turnOn() throws CommandExecutionError;

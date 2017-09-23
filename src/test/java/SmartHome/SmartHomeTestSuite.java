@@ -1,12 +1,12 @@
-package SmartHome;
+package smartHome;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-import SmartHome.controllable.ControllableManagerTest;
-import SmartHome.controllable.controllableObjects.ControllableFactoryTest;
-import SmartHome.controllable.controllableObjects.RadioSocketTest;
-import SmartHome.services.CommandExecutionTest;
+import smartHome.controllable.ControllableManagerTest;
+import smartHome.controllable.controllableObjects.ControllableFactoryTest;
+import smartHome.controllable.controllableObjects.RadioSocketTest;
+import smartHome.services.CommandExecutionTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({

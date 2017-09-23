@@ -1,4 +1,4 @@
-package SmartHome.controllable.controllableObjects;
+package smartHome.controllable.controllableObjects;
 
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
@@ -14,12 +14,14 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import SmartHome.controllable.Command;
-import SmartHome.controllable.command.CommandFactory;
-import SmartHome.controllable.command.ToggleRadioSocketCommand;
-import SmartHome.controllable.command.TurnOff;
-import SmartHome.controllable.command.TurnOn;
-import SmartHome.exceptions.CommandExecutionError;
+import smartHome.controllable.Command;
+import smartHome.controllable.command.CommandFactory;
+import smartHome.controllable.command.ToggleRadioSocketCommand;
+import smartHome.controllable.command.TurnOff;
+import smartHome.controllable.command.TurnOn;
+import smartHome.controllable.controllableObjects.RadioSocket;
+import smartHome.controllable.controllableObjects.RuntimeExecuter;
+import smartHome.exceptions.CommandExecutionError;
 
 public class RadioSocketTest {
 	private String testDeviceName = "test";

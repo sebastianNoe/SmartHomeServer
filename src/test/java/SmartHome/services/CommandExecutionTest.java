@@ -1,4 +1,4 @@
-package SmartHome.services;
+package smartHome.services;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyString;
@@ -12,10 +12,11 @@ import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import SmartHome.controllable.ControllableManager;
-import SmartHome.exceptions.CommandExecutionError;
-import SmartHome.exceptions.DeviceCommandCombinationNotFound;
-import SmartHome.services.requestBody.CommandExecutionRequestBody;
+import smartHome.controllable.ControllableManager;
+import smartHome.exceptions.CommandExecutionError;
+import smartHome.exceptions.DeviceCommandCombinationNotFound;
+import smartHome.services.CommandExecution;
+import smartHome.services.requestBody.CommandExecutionRequestBody;
 
 public class CommandExecutionTest {
 	private static final String testCommandName = "testCommand";

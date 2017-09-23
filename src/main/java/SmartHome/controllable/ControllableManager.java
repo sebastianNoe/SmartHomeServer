@@ -1,4 +1,4 @@
-package SmartHome.controllable;
+package smartHome.controllable;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,10 +12,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import SmartHome.Settings;
-import SmartHome.controllable.controllableObjects.ControllableFactory;
-import SmartHome.exceptions.CommandExecutionError;
-import SmartHome.exceptions.DeviceCommandCombinationNotFound;
+import smartHome.controllable.controllableObjects.ControllableFactory;
+import smartHome.exceptions.CommandExecutionError;
+import smartHome.exceptions.DeviceCommandCombinationNotFound;
+import smartHome.Settings;
 
 @Controller
 public class ControllableManager {

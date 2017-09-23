@@ -1,13 +1,13 @@
-package SmartHome.controllable.command;
+package smartHome.controllable.command;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 
-import SmartHome.controllable.Command;
-import SmartHome.controllable.OnOrOffSwitchable;
-import SmartHome.controllable.controllableObjects.RadioSocket;
+import smartHome.controllable.Command;
+import smartHome.controllable.OnOrOffSwitchable;
+import smartHome.controllable.controllableObjects.RadioSocket;
 
 @Controller
 public class CommandFactory {

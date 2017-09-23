@@ -1,4 +1,4 @@
-package SmartHome.controllable.controllableObjects;
+package smartHome.controllable.controllableObjects;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertNull;
@@ -13,9 +13,11 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import SmartHome.Settings;
-import SmartHome.controllable.Controllable;
-import SmartHome.controllable.command.CommandFactory;
+import smartHome.controllable.Controllable;
+import smartHome.controllable.command.CommandFactory;
+import smartHome.controllable.controllableObjects.ControllableFactory;
+import smartHome.controllable.controllableObjects.RadioSocket;
+import smartHome.Settings;
 
 public class ControllableFactoryTest {
 	private CommandFactory commandFactoryDummy;

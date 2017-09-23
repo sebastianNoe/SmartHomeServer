@@ -1,4 +1,4 @@
-package SmartHome.services.requestBody;
+package smartHome.services.requestBody;
 
 public class CommandExecutionRequestBody {
 	private String controllableName;

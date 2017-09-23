@@ -1,4 +1,4 @@
-package SmartHome.controllable;
+package smartHome.controllable;
 
 import java.util.List;
 

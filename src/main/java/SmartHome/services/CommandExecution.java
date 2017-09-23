@@ -1,4 +1,4 @@
-package SmartHome.services;
+package smartHome.services;
 
 import javax.validation.Valid;
 
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import SmartHome.controllable.ControllableManager;
-import SmartHome.exceptions.CommandExecutionError;
-import SmartHome.exceptions.DeviceCommandCombinationNotFound;
-import SmartHome.services.requestBody.CommandExecutionRequestBody;
+import smartHome.controllable.ControllableManager;
+import smartHome.exceptions.CommandExecutionError;
+import smartHome.exceptions.DeviceCommandCombinationNotFound;
+import smartHome.services.requestBody.CommandExecutionRequestBody;
 
 @RestController
 @RequestMapping(path = "commandExecution")

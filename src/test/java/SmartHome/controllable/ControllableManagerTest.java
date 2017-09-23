@@ -1,4 +1,4 @@
-package SmartHome.controllable;
+package smartHome.controllable;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
@@ -12,10 +12,14 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import SmartHome.Settings;
-import SmartHome.controllable.controllableObjects.ControllableFactory;
-import SmartHome.exceptions.CommandExecutionError;
-import SmartHome.exceptions.DeviceCommandCombinationNotFound;
+import smartHome.Settings;
+import smartHome.controllable.CastNodeToElement;
+import smartHome.controllable.Command;
+import smartHome.controllable.Controllable;
+import smartHome.controllable.ControllableManager;
+import smartHome.controllable.controllableObjects.ControllableFactory;
+import smartHome.exceptions.CommandExecutionError;
+import smartHome.exceptions.DeviceCommandCombinationNotFound;
 
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Element;

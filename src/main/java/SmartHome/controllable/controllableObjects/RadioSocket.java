@@ -1,15 +1,15 @@
-package SmartHome.controllable.controllableObjects;
+package smartHome.controllable.controllableObjects;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import SmartHome.controllable.Command;
-import SmartHome.controllable.Controllable;
-import SmartHome.controllable.OnOrOffSwitchable;
-import SmartHome.controllable.command.CommandFactory;
-import SmartHome.exceptions.CommandExecutionError;
+import smartHome.controllable.Command;
+import smartHome.controllable.Controllable;
+import smartHome.controllable.OnOrOffSwitchable;
+import smartHome.controllable.command.CommandFactory;
+import smartHome.exceptions.CommandExecutionError;
 
 public class RadioSocket implements Controllable, OnOrOffSwitchable {
 	public static final String type = "RadioSocket";

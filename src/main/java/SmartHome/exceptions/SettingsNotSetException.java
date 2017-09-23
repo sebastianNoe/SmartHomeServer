@@ -1,4 +1,4 @@
-package SmartHome.exceptions;
+package smartHome.exceptions;
 
 public class SettingsNotSetException extends Throwable {
 

@@ -1,8 +1,8 @@
-package SmartHome.controllable.command;
+package smartHome.controllable.command;
 
-import SmartHome.controllable.Command;
-import SmartHome.controllable.OnOrOffSwitchable;
-import SmartHome.exceptions.CommandExecutionError;
+import smartHome.controllable.Command;
+import smartHome.controllable.OnOrOffSwitchable;
+import smartHome.exceptions.CommandExecutionError;
 
 public class TurnOn implements Command {
 	private OnOrOffSwitchable switchable;

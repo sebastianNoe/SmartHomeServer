@@ -1,4 +1,4 @@
-package SmartHome;
+package smartHome;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import SmartHome.exceptions.CorruptSettingsFile;
+import smartHome.exceptions.CorruptSettingsFile;
 
 @Service
 public class Settings {

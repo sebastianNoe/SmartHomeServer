@@ -1,4 +1,4 @@
-package SmartHome.controllable.controllableObjects;
+package smartHome.controllable.controllableObjects;
 
 import java.io.File;
 
@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.w3c.dom.Element;
 
-import SmartHome.Settings;
-import SmartHome.controllable.Controllable;
-import SmartHome.controllable.command.CommandFactory;
+import smartHome.controllable.Controllable;
+import smartHome.controllable.command.CommandFactory;
+import smartHome.Settings;
 
 @Controller
 public class ControllableFactory {

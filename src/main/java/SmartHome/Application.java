@@ -1,4 +1,4 @@
-package SmartHome;
+package smartHome;
 
 import java.io.File;
 
@@ -6,12 +6,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-import SmartHome.exceptions.CorruptSettingsFile;
-import SmartHome.exceptions.SettingsNotSetException;
+import smartHome.exceptions.CorruptSettingsFile;
+import smartHome.exceptions.SettingsNotSetException;
 
 @SpringBootApplication
-@ComponentScan({ "SmartHome.controllable", "SmartHome.controllable.command",
-		"SmartHome.controllable.controllableObjects", "SmartHome.services", "SmartHome" })
+@ComponentScan({ "smartHome.controllable", "smartHome.controllable.command",
+		"smartHome.controllable.controllableObjects", "smartHome.services", "smartHome" })
 public class Application {
 	private static File settingsLocation;
 

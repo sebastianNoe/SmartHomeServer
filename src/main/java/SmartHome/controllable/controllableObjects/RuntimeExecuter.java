@@ -1,4 +1,4 @@
-package SmartHome.controllable.controllableObjects;
+package smartHome.controllable.controllableObjects;
 
 import java.io.File;
 import java.io.IOException;
