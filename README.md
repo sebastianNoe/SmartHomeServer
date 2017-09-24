@@ -1,6 +1,6 @@
 # SmartHomeServer
 Target of this solution is to provide a RESTful Server which allows to execute commands to control controllable devices like radio sockets, shutters or other devices.
-To do so currently the rcswitch-pi library on a Raspberry Pi is reused.
+To do so currently the rcswitch-pi library on a Raspberry Pi is used.
 To define the location of that library and also to define the to be managed devices a settings.xml is expected.
 
 ## Currently supported Device Types and supported commands:
@@ -13,7 +13,7 @@ To define the location of that library and also to define the to be managed devi
 - All device types can be used here.
 - Device name needs to be unique.
 - Each device type can have its unique attributes.
-- Path to settings file can be defined on Startup using following arguments: *-s <settings path>*. If no settings parameter is provided you will be asked to provide one during startup
+- Path to settings file can be defined on Startup using following arguments: *-s &lt;settings path&gt;*. If no settings parameter is provided you will be asked to provide one during startup
 
 ```XML
 <smartHomeServer>
